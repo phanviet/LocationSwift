@@ -12,11 +12,39 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  var locationTracker: LocationTracker?
+  var locationUpdateTimer: NSTimer?
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    
+    //We have to make sure that the Background App Refresh is enable for the Location updates to work in the background.
+    if(UIApplication.sharedApplication().backgroundRefreshStatus == UIBackgroundRefreshStatus.Denied) {
+      let alert = UIAlertView(title: "", message: "The app doesn't work without the Background App Refresh enabled. To turn it on, go to Settings > General > Background App Refresh", delegate: nil, cancelButtonTitle: "OK")
+      
+      alert.show()
+    } else if(UIApplication.sharedApplication().backgroundRefreshStatus == UIBackgroundRefreshStatus.Restricted) {
+      let alert = UIAlertView(title: "", message: "The functions of this app are limited because the Background App Refresh is disable.", delegate: nil, cancelButtonTitle: "OK")
+      
+      alert.show()
+    } else {
+      self.locationTracker = LocationTracker()
+      self.locationTracker?.startLocationTracking()
+      
+      //Send the best location to server every 60 seconds
+      //You may adjust the time interval depends on the need of your app.
+      let time: NSTimeInterval = 60.0
+      self.locationUpdateTimer = NSTimer.scheduledTimerWithTimeInterval(time, target: self, selector: Selector("updateLocation"), userInfo: nil, repeats: true)
+      
+    }
+    
     return true
+  }
+  
+  func updateLocation() {
+    print("updateLocation")
+    
+    self.locationTracker?.updateLocationToServer()
   }
 
   func applicationWillResignActive(application: UIApplication) {

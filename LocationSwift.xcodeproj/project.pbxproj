@@ -14,6 +14,9 @@
 		1B42406C1C478ECF003DD8B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B42406A1C478ECF003DD8B4 /* LaunchScreen.storyboard */; };
 		1B4240771C478ECF003DD8B4 /* LocationSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4240761C478ECF003DD8B4 /* LocationSwiftTests.swift */; };
 		1B4240821C478ECF003DD8B4 /* LocationSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4240811C478ECF003DD8B4 /* LocationSwiftUITests.swift */; };
+		1B4240901C4792CB003DD8B4 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B42408F1C4792CB003DD8B4 /* LocationTracker.swift */; };
+		1B4240921C4793D7003DD8B4 /* LocationShareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4240911C4793D7003DD8B4 /* LocationShareModel.swift */; };
+		1B4240941C479479003DD8B4 /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4240931C479479003DD8B4 /* BackgroundTaskManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		1B42407D1C478ECF003DD8B4 /* LocationSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B4240811C478ECF003DD8B4 /* LocationSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSwiftUITests.swift; sourceTree = "<group>"; };
 		1B4240831C478ECF003DD8B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B42408F1C4792CB003DD8B4 /* LocationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
+		1B4240911C4793D7003DD8B4 /* LocationShareModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationShareModel.swift; sourceTree = "<group>"; };
+		1B4240931C479479003DD8B4 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 				1B4240681C478ECF003DD8B4 /* Assets.xcassets */,
 				1B42406A1C478ECF003DD8B4 /* LaunchScreen.storyboard */,
 				1B42406D1C478ECF003DD8B4 /* Info.plist */,
+				1B42408F1C4792CB003DD8B4 /* LocationTracker.swift */,
+				1B4240911C4793D7003DD8B4 /* LocationShareModel.swift */,
+				1B4240931C479479003DD8B4 /* BackgroundTaskManager.swift */,
 			);
 			path = LocationSwift;
 			sourceTree = "<group>";
@@ -192,6 +201,11 @@
 				TargetAttributes = {
 					1B42405D1C478ECF003DD8B4 = {
 						CreatedOnToolsVersion = 7.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					1B4240711C478ECF003DD8B4 = {
 						CreatedOnToolsVersion = 7.0;
@@ -255,8 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B4240941C479479003DD8B4 /* BackgroundTaskManager.swift in Sources */,
+				1B4240921C4793D7003DD8B4 /* LocationShareModel.swift in Sources */,
 				1B4240641C478ECF003DD8B4 /* ViewController.swift in Sources */,
 				1B4240621C478ECF003DD8B4 /* AppDelegate.swift in Sources */,
+				1B4240901C4792CB003DD8B4 /* LocationTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +414,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LocationSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = own.LocationSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -408,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LocationSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = own.LocationSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -481,6 +500,7 @@
 				1B4240881C478ECF003DD8B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1B4240891C478ECF003DD8B4 /* Build configuration list for PBXNativeTarget "LocationSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +509,7 @@
 				1B42408B1C478ECF003DD8B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1B42408C1C478ECF003DD8B4 /* Build configuration list for PBXNativeTarget "LocationSwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +518,7 @@
 				1B42408E1C478ECF003DD8B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
